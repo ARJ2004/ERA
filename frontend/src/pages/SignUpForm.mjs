@@ -50,6 +50,7 @@ export const SignUpForm = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1>Exam Room Allocation</h1>
         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
           Create Your Account
         </h2>

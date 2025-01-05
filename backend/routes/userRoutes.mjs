@@ -144,6 +144,31 @@ router.get('/all', async (req, res) => {
   }
 });
 
+
+// Delete User
+router.delete('/users/:id', async (req, res) => {
+  try {
+      const userId = req.params.id;
+      console.log(`Attempting to delete user with ID: ${userId}`); // Debugging log
+
+      const result = await User.deleteOne({ _id: userId }); // Use deleteOne method to delete the user
+      if (result.deletedCount === 0) {
+          console.log(`User with ID ${userId} not found`); // Debugging log
+          return res.status(404).json({ msg: 'User not found' });
+      }
+
+      console.log(`User with ID ${userId} deleted successfully`); // Debugging log
+      res.json({ msg: 'User removed' });
+  } catch (err) {
+      console.error(`Error deleting user: ${err.message}`); // Detailed error log
+      res.status(500).send('Server error');
+  }
+});
+
+
+
+
+
 // Search User by Name
 router.get('/search', async (req, res) => {
   const { name } = req.query;
@@ -226,22 +251,21 @@ router.get('/rooms/allocated/:userId', async (req, res) => {
 // Delete Room
 router.delete('/rooms/:id', async (req, res) => {
   try {
-    const room = await Room.findById(req.params.id);
-    if (!room) {
-      return res.status(404).json({ msg: 'Room not found' });
-    }
-
-    // Update the allocated user's room details to null
-    await User.findByIdAndUpdate(room.allocatedTo, { allocatedRoom: null });
-
-    await room.remove();
-
-    res.json({ msg: 'Room removed' });
+      const room = await Room.findById(req.params.id);
+      if (!room) {
+          return res.status(404).json({ msg: 'Room not found' });
+      }
+      // Update the allocated user's room details to null
+      await User.findByIdAndUpdate(room.allocatedTo, { allocatedRoom: null });
+      await Room.deleteOne({ _id: req.params.id }); // Use deleteOne method to delete the room
+      res.json({ msg: 'Room removed' });
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
+      console.error(err.message);
+      res.status(500).send('Server error');
   }
 });
+
+
 
 // Fetch Room Occupancy
 router.get('/rooms/:roomId/occupancy', async (req, res) => {

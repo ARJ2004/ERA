@@ -64,14 +64,18 @@ export const ListUsers = () => {
 
   const handleDelete = async (userId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/users/${userId}`);
-      setUsers(users.filter(user => user._id !== userId));
-      setMessage('User deleted successfully');
+        console.log(`Deleting user with ID: ${userId}`); // Debugging log
+        await axios.delete(`http://localhost:5000/api/users/${userId}`);
+        setUsers(users.filter(user => user._id !== userId));
+        setMessage('User deleted successfully');
     } catch (err) {
-      console.error(err);
-      setMessage('Failed to delete user');
+        console.error(`Error deleting user: ${err.message}`); // Detailed error log
+        setMessage('Failed to delete user');
     }
-  };
+};
+
+
+
 
   const handleSearch = async () => {
     try {
