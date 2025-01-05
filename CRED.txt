@@ -1,0 +1,74 @@
+student@example.com
+password123
+
+
+invigilator@example.com	
+password123
+
+
+admin@g
+password123
+
+
+Sure, let's summarize what we have achieved so far:
+
+Achievements
+Backend Setup:
+
+User Model: Defined the User model with fields like email, password, name, role, usn, class, eid, phno, and allocatedRoom.
+Room Model: Defined the Room model with fields like roomNumber, building, floor, capacity, subject, exam, and allocatedTo.
+Routes:
+Register Route: Allows users to register.
+Login Route: Allows users to log in and receive a JWT token.
+Get User Details: Fetches user details by ID.
+Update User Details: Updates user details by ID.
+Get All Users: Fetches all users.
+Search User by Name: Searches users by name.
+Add Room: Adds a new room and allocates it to a user.
+Get All Rooms: Fetches all rooms.
+Get Room by Allocated User: Fetches a room by the allocated user ID.
+Delete Room: Deletes a room and updates the allocated user's room details to null.
+Delete User: Deletes a user.
+Frontend Setup:
+
+Admin Dashboard:
+Displays admin details.
+Allows editing admin details.
+Provides navigation to list users, list rooms, and allocate rooms.
+Includes a logout button to redirect to the login page.
+Student Dashboard:
+Fetches and displays student details.
+Allows editing student details.
+Displays the allocated room details or a message if no room is allocated.
+Includes a logout button to redirect to the login page.
+Invigilator Dashboard:
+Fetches and displays invigilator details.
+Allows editing invigilator details.
+Displays the allocated room details or a message if no room is allocated.
+Includes a logout button to redirect to the login page.
+List Users Component:
+Fetches and displays all users.
+Allows searching for users by name.
+Allows editing and deleting users.
+List Rooms Component:
+Fetches and displays all rooms.
+Allows adding and deleting rooms.
+Allocate Room Component:
+Allows allocating rooms to users.
+Key Features Implemented
+User Authentication:
+
+Registration and login functionality.
+JWT token generation and verification.
+User Management:
+
+Fetching, updating, and deleting user details.
+Searching users by name.
+Room Management:
+
+Adding, fetching, and deleting rooms.
+Allocating rooms to users.
+Dashboard Functionality:
+
+Admin, student, and invigilator dashboards with edit and logout functionality.
+Display of allocated room details or a message if no room is allocated.
