@@ -180,6 +180,20 @@ router.get('/search/usn', async (req, res) => {
     }
 });
 
+// Search User by Class
+router.get('/search/class', async (req, res) => {
+    const { class: studentClass } = req.query;
+    try {
+        const users = await User.find({ class: { $regex: studentClass, $options: 'i' } }).select('-password').populate('allocatedRoom');
+        res.json(users);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+});
+
+
+
 // Add Room
 router.post('/rooms', async (req, res) => {
     const { roomNumber, building, floor, capacity, subject, exam, date, time, allocatedTo } = req.body;
@@ -217,7 +231,6 @@ router.get('/rooms', async (req, res) => {
 });
 
 //get room
-// In userRoutes.mjs
 router.get('/rooms/:roomId', async (req, res) => {
   try {
       const room = await Room.findById(req.params.roomId).populate('allocatedTo', 'name email');
