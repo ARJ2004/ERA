@@ -119,6 +119,10 @@ export const ListRooms = () => {
         navigate(`/view-room/${roomId}`);
     };
 
+    const handleBack = () => {
+        navigate('/admin-dashboard'); // Navigate to /admin-dashboard
+    };
+
     return (
         <div>
             <style>{`
@@ -216,6 +220,9 @@ export const ListRooms = () => {
                 }
             `}</style>
             <div className="container">
+            <button onClick={handleBack} className="back-button">
+                ⬅ Back
+            </button>
                 <h1>List Rooms</h1>
                 <form>
                     <div>

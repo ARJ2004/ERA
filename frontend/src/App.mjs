@@ -9,7 +9,7 @@ import { ListUsers } from './pages/ListUsers.mjs';
 import { ListRooms } from './pages/ListRooms.mjs';
 import { AllocateRoom } from './pages/AllocateRoom.mjs';
 import { ViewRoom } from './pages/ViewRoom.mjs';
-import './index.css';
+
 import './App.css';
 
 function App() {

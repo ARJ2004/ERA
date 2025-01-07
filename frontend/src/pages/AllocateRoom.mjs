@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import '../CSS/AllocateRoom.css'; // Import the CSS file for styling
 
 // Linear Congruential Generator (LCG) function
 const lcg = (seed) => {
@@ -133,40 +134,55 @@ export const AllocateRoom = () => {
     };
 
     return (
-        <div>
-            <h1>Allocate Room</h1>
-            <div>
-                <label>Search by USN</label>
-                <input type="text" value={searchUSN} onChange={(e) => setSearchUSN(e.target.value)} />
-                <button onClick={handleSearch}>Search</button>
+        <div className="allocate-room-container">
+            <div className="header">
+                <h1>Allocate Room</h1>
             </div>
-            <div>
-                <label>Search by Class</label>
-                <input type="text" value={searchClass} onChange={(e) => setSearchClass(e.target.value)} />
-                <button onClick={handleClassSearch}>Search</button>
+            <div className="search-container">
+                <div>
+                    <label>Search by USN</label>
+                    <input type="text" value={searchUSN} onChange={(e) => setSearchUSN(e.target.value)} />
+                    <button onClick={handleSearch}>Search</button>
+                </div>
+                <div>
+                    <label>Search by Class</label>
+                    <input type="text" value={searchClass} onChange={(e) => setSearchClass(e.target.value)} />
+                    <button onClick={handleClassSearch}>Search</button>
+                </div>
             </div>
-            <div>
+            <div className="select-all-container">
                 <label>
                     <input type="checkbox" checked={selectAll} onChange={handleSelectAll} />
                     Select All
                 </label>
             </div>
-            <div>
-                <label>Select Students</label>
-                <ul>
-                    {students.map(student => (
-                        <li key={student._id}>
-                            <input
-                                type="checkbox"
-                                checked={selectAll || selectedStudents.includes(student._id)}
-                                onChange={() => handleStudentSelect(student._id)}
-                            />
-                            {student.name} ({student.usn})
-                        </li>
-                    ))}
-                </ul>
+            <div className="students-table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>Name</th>
+                            <th>USN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {students.map(student => (
+                            <tr key={student._id}>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        checked={selectAll || selectedStudents.includes(student._id)}
+                                        onChange={() => handleStudentSelect(student._id)}
+                                    />
+                                </td>
+                                <td>{student.name}</td>
+                                <td>{student.usn}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
-            <div>
+            <div className="room-select-container">
                 <label>Select Room</label>
                 <select value={selectedRoom} onChange={(e) => handleRoomSelect(e.target.value)}>
                     <option value="">Select a room</option>
@@ -178,14 +194,14 @@ export const AllocateRoom = () => {
                 </select>
             </div>
             {selectedRoom && (
-                <div>
+                <div className="room-details-container">
                     <p>Room Capacity: {roomCapacity}</p>
                     <p>Current Occupancy: {roomOccupancy}</p>
                     <p>Available Seats: {roomCapacity - roomOccupancy}</p>
                 </div>
             )}
-            <button onClick={handleAllocate}>Allocate</button>
-            {message && <p>{message}</p>}
+            <button className="allocate-button" onClick={handleAllocate}>Allocate</button>
+            {message && <p className="message">{message}</p>}
         </div>
     );
 };

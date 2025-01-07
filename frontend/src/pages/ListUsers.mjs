@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
+import '../CSS/ListUsers.css'; // Import the CSS file for styling
 
 export const ListUsers = () => {
+    const navigate = useNavigate(); // Initialize useNavigate hook
     const [users, setUsers] = useState([]);
     const [editingUser, setEditingUser] = useState(null);
     const [formData, setFormData] = useState({
@@ -122,85 +125,89 @@ export const ListUsers = () => {
         }
     };
 
+    const handleBack = () => {
+        navigate('/admin-dashboard'); // Navigate to /admin-dashboard
+    };
+
     return (
-        <div>
+        <div className="container">
+            <button onClick={handleBack} className="back-button">
+                ⬅ Back
+            </button>
             <h1>List Users</h1>
-            <input
-                type="text"
-                placeholder="Search by name"
-                value={searchTerm}
-                onChange={handleSearchChange}
-            />
-            <button onClick={handleSearch}>Search</button>
-            <input type="file" accept=".csv" onChange={handleFileChange} />
-            <button onClick={handleUpload}>Upload CSV</button>
-            <ul>
-                {users.map(user => (
-                    <li key={user._id}>
-                        {editingUser === user._id ? (
-                            <form>
-                                <div>
-                                    <label>Name</label>
-                                    <input type="text" name="name" value={formData.name} onChange={handleChange} />
-                                </div>
-                                <div>
-                                    <label>Email</label>
-                                    <input type="email" name="email" value={formData.email} onChange={handleChange} />
-                                </div>
-                                <div>
-                                    <label>Role</label>
-                                    <input type="text" name="role" value={formData.role} onChange={handleChange} />
-                                </div>
-                                {user.role === 'student' && (
-                                    <>
-                                        <div>
-                                            <label>USN</label>
+            <div className="search-upload">
+                <div className="search-area">
+                    <input
+                        type="text"
+                        placeholder="Search by name"
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                        className="search-input"
+                    />
+                    <button onClick={handleSearch} className="search-button">Search</button>
+                </div>
+                <div className="upload-area">
+                    <input type="file" accept=".csv" onChange={handleFileChange} className="file-input" />
+                    <button onClick={handleUpload} className="upload-button">Upload CSV</button>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>USN/EID</th>
+                        <th>Class</th>
+                        <th>Phone Number</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {users.map(user => (
+                        <tr key={user._id}>
+                            {editingUser === user._id ? (
+                                <>
+                                    <td><input type="text" name="name" value={formData.name} onChange={handleChange} /></td>
+                                    <td><input type="email" name="email" value={formData.email} onChange={handleChange} /></td>
+                                    <td><input type="text" name="role" value={formData.role} onChange={handleChange} /></td>
+                                    <td>
+                                        {user.role === 'student' ? (
                                             <input type="text" name="usn" value={formData.usn} onChange={handleChange} />
-                                        </div>
-                                        <div>
-                                            <label>Class</label>
-                                            <input type="text" name="class" value={formData.class} onChange={handleChange} />
-                                        </div>
-                                    </>
-                                )}
-                                {user.role === 'invigilator' && (
-                                    <>
-                                        <div>
-                                            <label>EID</label>
+                                        ) : (
                                             <input type="text" name="eid" value={formData.eid} onChange={handleChange} />
-                                        </div>
-                                        <div>
-                                            <label>Phone Number</label>
+                                        )}
+                                    </td>
+                                    <td>
+                                        {user.role === 'student' && (
+                                            <input type="text" name="class" value={formData.class} onChange={handleChange} />
+                                        )}
+                                    </td>
+                                    <td>
+                                        {user.role === 'invigilator' && (
                                             <input type="text" name="phno" value={formData.phno} onChange={handleChange} />
-                                        </div>
-                                    </>
-                                )}
-                                <button type="button" onClick={handleSave}>Save</button>
-                            </form>
-                        ) : (
-                            <div>
-                                <p>Name: {user.name}</p>
-                                <p>Email: {user.email}</p>
-                                <p>Role: {user.role}</p>
-                                {user.role === 'student' && (
-                                    <>
-                                        <p>USN: {user.usn}</p>
-                                        <p>Class: {user.class}</p>
-                                    </>
-                                )}
-                                {user.role === 'invigilator' && (
-                                    <>
-                                        <p>EID: {user.eid}</p>
-                                        <p>Phone Number: {user.phno}</p>
-                                    </>
-                                )}
-                                <button onClick={() => handleEdit(user)}>Edit</button>
-                                <button onClick={() => handleDelete(user._id)}>Delete</button>
-                            </div>
-                        )}
-                    </li>
-                ))}
-            </ul>
+                                        )}
+                                    </td>
+                                    <td><button type="button" onClick={handleSave} className="action-button save-button">Save</button></td>
+                                </>
+                            ) : (
+                                <>
+                                    <td>{user.name}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.role}</td>
+                                    <td>{user.role === 'student' ? user.usn : user.eid}</td>
+                                    <td>{user.role === 'student' ? user.class : ''}</td>
+                                    <td>{user.role === 'invigilator' ? user.phno : ''}</td>
+                                    <td>
+                                        <button onClick={() => handleEdit(user)} className="action-button edit-button">Edit</button>
+                                        <button onClick={() => handleDelete(user._id)} className="action-button delete-button">Delete</button>
+                                    </td>
+                                </>
+                            )}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
             {message && <p>{message}</p>}
         </div>
     );
