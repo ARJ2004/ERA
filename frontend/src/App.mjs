@@ -8,30 +8,31 @@ import { InvigilatorDashboard } from './pages/InvigilatorDashboard.mjs';
 import { ListUsers } from './pages/ListUsers.mjs';
 import { ListRooms } from './pages/ListRooms.mjs';
 import { AllocateRoom } from './pages/AllocateRoom.mjs';
+import { ViewRoom } from './pages/ViewRoom.mjs';
 import './index.css';
-import './App.css'
-
+import './App.css';
 
 function App() {
-  return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <Routes>
-            <Route path="/signup" element={<SignUpForm />} />
-            <Route path="/login" element={<LoginForm />} />
-            <Route path="/admin-dashboard" element={<AdminDashboard />} />
-            <Route path="/student-dashboard" element={<StudentDashboard />} />
-            <Route path="/invigilator-dashboard" element={<InvigilatorDashboard />} />
-            <Route path="/admin/list-users" element={<ListUsers />} />
-            <Route path="/admin/list-rooms" element={<ListRooms />} />
-            <Route path="/admin/allocate-room" element={<AllocateRoom />} />
-            <Route path="/" element={<SignUpForm />} />
-          </Routes>
-        </header>
-      </div>
-    </Router>
-  );
+    return (
+        <Router>
+            <div className="App">
+                <header className="App-header">
+                    <Routes>
+                        <Route path="/signup" element={<SignUpForm />} />
+                        <Route path="/login" element={<LoginForm />} />
+                        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+                        <Route path="/student-dashboard" element={<StudentDashboard />} />
+                        <Route path="/invigilator-dashboard" element={<InvigilatorDashboard />} />
+                        <Route path="/admin/list-users" element={<ListUsers />} />
+                        <Route path="/admin/list-rooms" element={<ListRooms />} />
+                        <Route path="/admin/allocate-room" element={<AllocateRoom />} />
+                        <Route path="/view-room/:roomId" element={<ViewRoom />} />
+                        <Route path="/" element={<SignUpForm />} />
+                    </Routes>
+                </header>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
