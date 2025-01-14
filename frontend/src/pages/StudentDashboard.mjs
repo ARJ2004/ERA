@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
+import '../CSS/StudentDashboard.css';
 
 export const StudentDashboard = () => {
   const [userDetails, setUserDetails] = useState(null);
@@ -13,6 +14,7 @@ export const StudentDashboard = () => {
     usn: '',
     class: '',
   });
+  const [darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -70,14 +72,27 @@ export const StudentDashboard = () => {
     navigate('/login');
   };
 
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <div>
-      <h1>Student Dashboard</h1>
-      <div className="user-details">
+    <div className={`dashboard-container ${darkMode ? 'dark-mode' : ''}`}>
+      <div className="header">
+        <h1 className="dashboard-title">Student Dashboard</h1>
+        <div className="buttons-container">
+          <button onClick={toggleTheme} className="theme-toggle-button">
+            {darkMode ? 'Light Mode' : 'Dark Mode'}
+          </button>
+          <button onClick={handleLogout} className="logout-button">Logout</button>
+        </div>
+      </div>
+      <div className="user-details-container">
+        <h2 className="details-title">Details</h2>
         {userDetails && (
-          <div>
+          <div className="user-details">
             {editing ? (
-              <form>
+              <form className="edit-form">
                 <div>
                   <label>Name</label>
                   <input type="text" name="name" value={formData.name} onChange={handleChange} />
@@ -94,23 +109,23 @@ export const StudentDashboard = () => {
                   <label>Class</label>
                   <input type="text" name="class" value={formData.class} onChange={handleChange} />
                 </div>
-                <button type="button" onClick={handleSave}>Save</button>
+                <button type="button" onClick={handleSave} className="save-button">Save</button>
               </form>
             ) : (
-              <div>
+              <div className="details-display">
                 <p>Name: {userDetails.name}</p>
                 <p>Email: {userDetails.email}</p>
                 <p>USN: {userDetails.usn}</p>
                 <p>Class: {userDetails.class}</p>
-                <button onClick={handleEdit}>Edit</button>
+                <button onClick={handleEdit} className="edit-button">Edit</button>
               </div>
             )}
           </div>
         )}
       </div>
-      <h2>Allocated Room</h2>
+      <h2 className="room-title">Allocated Room</h2>
       {allocatedRoom ? (
-        <div>
+        <div className="room-details">
           <p>Room Number: {allocatedRoom.roomNumber}</p>
           <p>Building: {allocatedRoom.building}</p>
           <p>Floor: {allocatedRoom.floor}</p>
@@ -120,9 +135,8 @@ export const StudentDashboard = () => {
           <p>Seat Number: {userDetails.seatNumber}</p>
         </div>
       ) : (
-        <p>No Room is allocated</p>
+        <p className="no-room">No Room is allocated</p>
       )}
-      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 };

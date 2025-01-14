@@ -4,6 +4,7 @@ body, html {
     width: 100%;
     background-color: #f4f4f4;
     color: #664e4e;
+    height: 100%;
 }
 
 .admin-dashboard {

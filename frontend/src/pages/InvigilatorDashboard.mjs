@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
+import '../CSS/InvigilatorDashboard.css';
 
 export const InvigilatorDashboard = () => {
     const [userDetails, setUserDetails] = useState(null);
@@ -13,6 +14,7 @@ export const InvigilatorDashboard = () => {
         eid: '',
         phno: '',
     });
+    const [darkMode, setDarkMode] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -75,14 +77,27 @@ export const InvigilatorDashboard = () => {
         }
     };
 
+    const toggleTheme = () => {
+        setDarkMode(!darkMode);
+    };
+
     return (
-        <div>
-            <h1>Invigilator Dashboard</h1>
-            <div className="user-details">
+        <div className={`dashboard-container ${darkMode ? 'dark-mode' : ''}`}>
+            <div className="header">
+                <h1 className="dashboard-title">Invigilator Dashboard</h1>
+                <div className="buttons-container">
+                    <button onClick={toggleTheme} className="theme-toggle-button">
+                        {darkMode ? 'Light Mode' : 'Dark Mode'}
+                    </button>
+                    <button onClick={handleLogout} className="logout-button">Logout</button>
+                </div>
+            </div>
+            <div className="user-details-container">
+                <h2 className="details-title">Details</h2>
                 {userDetails && (
-                    <div>
+                    <div className="user-details">
                         {editing ? (
-                            <form>
+                            <form className="edit-form">
                                 <div>
                                     <label>Name</label>
                                     <input type="text" name="name" value={formData.name} onChange={handleChange} />
@@ -99,35 +114,34 @@ export const InvigilatorDashboard = () => {
                                     <label>Phone Number</label>
                                     <input type="text" name="phno" value={formData.phno} onChange={handleChange} />
                                 </div>
-                                <button type="button" onClick={handleSave}>Save</button>
+                                <button type="button" onClick={handleSave} className="save-button">Save</button>
                             </form>
                         ) : (
-                            <div>
+                            <div className="details-display">
                                 <p>Name: {userDetails.name}</p>
                                 <p>Email: {userDetails.email}</p>
                                 <p>EID: {userDetails.eid}</p>
                                 <p>Phone Number: {userDetails.phno}</p>
-                                <button onClick={handleEdit}>Edit</button>
+                                <button onClick={handleEdit} className="edit-button">Edit</button>
                             </div>
                         )}
                     </div>
                 )}
             </div>
-            <h2>Allocated Room</h2>
+            <h2 className="room-title">Allocated Room</h2>
             {allocatedRoom ? (
-                <div>
+                <div className="room-details">
                     <p>Room Number: {allocatedRoom.roomNumber}</p>
                     <p>Building: {allocatedRoom.building}</p>
                     <p>Floor: {allocatedRoom.floor}</p>
                     <p>Capacity: {allocatedRoom.capacity}</p>
                     <p>Subject: {allocatedRoom.subject}</p>
                     <p>Exam: {allocatedRoom.exam}</p>
-                    <button onClick={handleViewRoom}>View Room</button>
+                    <button onClick={handleViewRoom} className="view-room-button">View Room</button>
                 </div>
             ) : (
-                <p>No Room is allocated</p>
+                <p className="no-room">No Room is allocated</p>
             )}
-            <button onClick={handleLogout}>Logout</button>
         </div>
     );
 };

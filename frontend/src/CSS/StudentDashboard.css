@@ -1,0 +1,124 @@
+.dashboard-container {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .dashboard-container.dark-mode {
+    background-color: #333;
+    color: #f0f8ff;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-title {
+    color: #ff6347;
+    text-align: left;
+  }
+  
+  .buttons-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .theme-toggle-button {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .theme-toggle-button:hover {
+    background-color: #ff4500;
+  }
+  
+  .logout-button {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .logout-button:hover {
+    background-color: #ff4500;
+  }
+  
+  .user-details-container, .room-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .dashboard-container.dark-mode .user-details-container,
+  .dashboard-container.dark-mode .room-details {
+    background-color: #444;
+    color: #f0f8ff;
+  }
+  
+  .details-title {
+    color: #ff6347;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  .user-details, .edit-form, .details-display {
+    text-align: left;
+  }
+  
+  .edit-form input, .edit-form label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  .edit-form input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .save-button, .edit-button {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .save-button:hover, .edit-button:hover {
+    background-color: #ff4500;
+  }
+  
+  .room-title {
+    color: #ff6347;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  
+  .room-details p {
+    text-align: left;
+  }
+  
+  .no-room {
+    text-align: left;
+    color: #ff4500;
+  }
+  
