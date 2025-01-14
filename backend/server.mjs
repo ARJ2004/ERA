@@ -12,8 +12,12 @@ const app = express()
 
 
 app.use(bodyParser.json());
-app.use(cors());
-
+app.use(cors({
+    origin: 'http://localhost:3000', // Allow only this origin
+    methods: 'GET,POST,PUT,DELETE', // Allow only these methods
+    allowedHeaders: 'Content-Type,Authorization', // Allow only these headers
+}));
+app.use(express.urlencoded({ extended: true }));
 
 connectDB()
 

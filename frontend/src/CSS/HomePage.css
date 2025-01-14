@@ -32,6 +32,7 @@ nav ul {
     gap: 20px;
     margin: 0;
     padding: 0;
+    align-items: center; /* Ensure items are vertically centered */
 }
 
 nav .nav-btn {
@@ -46,6 +47,7 @@ nav .nav-btn {
 .auth-buttons {
     display: flex;
     gap: 10px;
+    align-items: center; /* Ensure buttons are vertically centered */
 }
 
 .auth-btn {
@@ -114,14 +116,20 @@ nav .nav-btn {
 }
 
 .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 45%;
     margin: 20px;
+    text-align: center;
 }
 
 .feature img {
     max-width: 100%;
     height: auto;
     margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .feature h2 {
@@ -152,4 +160,3 @@ footer {
     border-top: 1px solid #dee2e6;
     color: #000; /* Ensure footer text is black */
 }
-    

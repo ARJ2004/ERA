@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 import csv from 'csv-parser';
 import fs from 'fs';
 import multer from 'multer';
+import mongoose from 'mongoose';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -138,23 +139,31 @@ router.get('/all', async (req, res) => {
     }
 });
 
+
 // Delete User
 router.delete('/users/:id', async (req, res) => {
     try {
         const userId = req.params.id;
         console.log(`Attempting to delete user with ID: ${userId}`); // Debugging log
-        const result = await User.deleteOne({ _id: userId });
-        if (result.deletedCount === 0) {
-            console.log(`User with ID ${userId} not found`); // Debugging log
+
+        // Ensure the userId is a valid ObjectId
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
+            return res.status(400).json({ msg: 'Invalid user ID' });
+        }
+
+        const user = await User.findById(userId);
+        if (!user) {
             return res.status(404).json({ msg: 'User not found' });
         }
-        console.log(`User with ID ${userId} deleted successfully`); // Debugging log
-        res.json({ msg: 'User removed' });
+
+        await User.deleteOne({ _id: userId });
+        res.json({ msg: 'User Deleted' });
     } catch (err) {
         console.error(`Error deleting user: ${err.message}`); // Detailed error log
         res.status(500).send('Server error');
     }
 });
+
 
 // Search User by Name
 router.get('/search', async (req, res) => {

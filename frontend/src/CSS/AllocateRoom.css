@@ -4,27 +4,28 @@
     font-family: Arial, sans-serif;
     padding: 20px;
     background-color: #1e1e1e; /* Match the background color */
-    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: 100%;
     width: 98%;
     margin: 0 auto;
     color: #ffffff; /* Ensure text is visible */
+    text-align: center; /* Center align text within the container */
 }
 
 .header {
-    text-align: center;
     margin-bottom: 20px;
+    padding-left: 40%;
 }
 
 .header h1 {
     color: #007bff;
+    margin: 0;
+     /* Remove default margin */
 }
 
 .back-button {
     padding: 8px 16px;
     border: none;
-    border-radius: 4px;
     background-color: #30aa4a;
     color: white;
     cursor: pointer;
@@ -56,7 +57,6 @@
     margin-right: 10px;
     padding: 8px;
     border: 1px solid #e0e0e0;
-    border-radius: 4px;
     background-color: #ffffff;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
@@ -64,7 +64,6 @@
 .search-container button {
     padding: 8px 16px;
     border: none;
-    border-radius: 4px;
     background-color: #007bff;
     color: white;
     cursor: pointer;
@@ -96,7 +95,7 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.students-table-container th{
+.students-table-container th {
     border: 1px solid #e0e0e0;
     padding: 12px;
     text-align: left;
@@ -128,7 +127,6 @@
 .room-select-container select {
     padding: 8px;
     border: 1px solid #e0e0e0;
-    border-radius: 4px;
     background-color: #ffffff;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
@@ -137,7 +135,6 @@
     margin-bottom: 20px;
     background-color: #f2f2f2;
     padding: 10px;
-    border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -149,7 +146,6 @@
 .allocate-button {
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
     background-color: #28a745;
     color: white;
     cursor: pointer;

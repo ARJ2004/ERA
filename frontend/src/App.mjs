@@ -13,7 +13,9 @@ import HomePage from './pages/HomePage.mjs'; // Updated import statement
 
 import './App.css';
 
+
 function App() {
+    
     return (
         <Router>
             <div className="App">

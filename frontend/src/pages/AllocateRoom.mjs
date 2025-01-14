@@ -141,7 +141,7 @@ export const AllocateRoom = () => {
 
     return (
         <div className="allocate-room-container">
-            <div className="header">
+            <div className="header"  >
                 <h1>Allocate Room</h1>
             </div>
             <div className="search-container">
