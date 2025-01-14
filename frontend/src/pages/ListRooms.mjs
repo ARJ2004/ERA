@@ -132,7 +132,8 @@ export const ListRooms = () => {
                     color: #333333;
                 }
                 .container {
-                    max-width: 1200px;
+                    height: 100%;
+                    width: 97%;
                     margin: 0 auto;
                     padding: 20px;
                 }

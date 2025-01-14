@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import '../CSS/SignUpForm.css'; // Custom CSS for additional styling
 
 export const SignUpForm = () => {
   const [email, setEmail] = useState('');
@@ -32,8 +33,8 @@ export const SignUpForm = () => {
 
   if (success) {
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-        <div className="bg-white p-6 rounded-lg shadow-md text-center">
+      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+        <div className="bg-white p-6 rounded-lg shadow-2xl text-center transform transition-transform duration-500">
           <h2 className="text-xl font-bold text-green-600 mb-4">Account Created Successfully!</h2>
           <p className="text-gray-700 mb-4">Please check your email to verify your account.</p>
           <Link
@@ -48,20 +49,18 @@ export const SignUpForm = () => {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h1>Exam Room Allocation</h1>
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-          Create Your Account
-        </h2>
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="bg-white p-6 rounded-lg shadow-2xl w-full max-w-xs transform transition-transform duration-500">
+        <div className="text-center mb-4">
+          <h1 className="text-2xl font-extrabold text-indigo-600">Exam Room Allocation (ERA)</h1>
+          <h2 className="text-xl font-bold text-gray-800 mt-2">Sign Up</h2>
+        </div>
         {error && (
           <div className="text-red-600 text-sm mb-4 text-center">{error}</div>
         )}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="form-group">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
             <input
               type="email"
               id="email"
@@ -72,10 +71,8 @@ export const SignUpForm = () => {
             />
           </div>
 
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Password
-            </label>
+          <div className="form-group">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
             <input
               type="password"
               id="password"
@@ -86,10 +83,8 @@ export const SignUpForm = () => {
             />
           </div>
 
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-              Full Name
-            </label>
+          <div className="form-group">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
             <input
               type="text"
               id="name"
@@ -100,10 +95,8 @@ export const SignUpForm = () => {
             />
           </div>
 
-          <div>
-            <label htmlFor="role" className="block text-sm font-medium text-gray-700">
-              Role
-            </label>
+          <div className="form-group">
+            <label htmlFor="role" className="block text-sm font-medium text-gray-700">Role</label>
             <select
               id="role"
               value={role}
@@ -118,9 +111,9 @@ export const SignUpForm = () => {
 
           <button
             type="submit"
-            className="w-full py-2 px-4 rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 font-medium"
+            className="w-full py-2 px-4 rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 font-medium transform transition-transform duration-300 hover:scale-105"
           >
-            Create Account
+            Sign Up
           </button>
         </form>
         <div className="text-center mt-4">

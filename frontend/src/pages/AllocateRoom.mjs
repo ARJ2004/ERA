@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import '../CSS/AllocateRoom.css'; // Import the CSS file for styling
 
 // Linear Congruential Generator (LCG) function
@@ -21,6 +22,7 @@ export const AllocateRoom = () => {
     const [selectAll, setSelectAll] = useState(false);
     const [roomCapacity, setRoomCapacity] = useState(0);
     const [roomOccupancy, setRoomOccupancy] = useState(0);
+    const navigate = useNavigate(); // Initialize useNavigate
 
     useEffect(() => {
         const fetchStudents = async () => {
@@ -133,6 +135,10 @@ export const AllocateRoom = () => {
         setSelectedStudents(selectAll ? [] : students.map(student => student._id));
     };
 
+    const handleBack = () => {
+        navigate('/admin-dashboard'); // Navigate back to the admin dashboard
+    };
+
     return (
         <div className="allocate-room-container">
             <div className="header">
@@ -159,6 +165,11 @@ export const AllocateRoom = () => {
             <div className="students-table-container">
                 <table>
                     <thead>
+                        <tr>
+                            <th colSpan="3">
+                                <button className="back-button" onClick={handleBack}> ⬅ Back</button>
+                            </th>
+                        </tr>
                         <tr>
                             <th>Select</th>
                             <th>Name</th>

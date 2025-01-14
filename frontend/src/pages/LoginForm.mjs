@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import {jwtDecode} from 'jwt-decode';
-import { FaEnvelope, FaLock } from 'react-icons/fa'; 
-
+import { jwtDecode } from 'jwt-decode';
+import { FaEnvelope, FaLock } from 'react-icons/fa';
+import '../CSS/LoginForm.css'; // Custom CSS for additional styling
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -45,22 +45,19 @@ export const LoginForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-blue-500 flex items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full bg-white shadow-lg rounded-lg p-8 transform transition-transform duration-300 hover:scale-105">
-        <h2 className="text-center text-3xl font-extrabold text-gray-900">Welcome Back</h2>
-        <p className="text-center text-sm text-gray-600">Sign in to your account</p>
-
-        <form onSubmit={handleSubmit} className="space-y-6 mt-6">
-          {error && <div className="text-red-600 text-sm text-center">{error}</div>}
-
-          <div className="relative">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email
-            </label>
-            <div className="mt-1 relative rounded-md shadow-sm">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="bg-white p-6 rounded-lg shadow-2xl w-full max-w-xs transform transition-transform duration-500">
+        <div className="text-center mb-4">
+          <h1 className="text-2xl font-extrabold text-indigo-600">Exam Room Allocation (ERA)</h1>
+          <h2 className="text-xl font-bold text-gray-800 mt-2">Login</h2>
+        </div>
+        {error && (
+          <div className="text-red-600 text-sm mb-4 text-center">{error}</div>
+        )}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="form-group">
+            <label htmlFor="email" className="text-sm font-medium text-gray-700">Email</label>
+            <div className="mt-1 flex items-center relative rounded-md shadow-sm">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <FaEnvelope className="h-5 w-5 text-gray-400" />
               </div>
@@ -76,14 +73,9 @@ export const LoginForm = () => {
             </div>
           </div>
 
-          <div className="relative">
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Password
-            </label>
-            <div className="mt-1 relative rounded-md shadow-sm">
+          <div className="form-group">
+            <label htmlFor="password" className="text-sm font-medium text-gray-700">Password</label>
+            <div className="mt-1 flex items-center relative rounded-md shadow-sm">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <FaLock className="h-5 w-5 text-gray-400" />
               </div>
@@ -101,22 +93,23 @@ export const LoginForm = () => {
 
           <button
             type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300"
+            className="w-full py-2 px-4 rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 font-medium transform transition-transform duration-300 hover:scale-105"
             disabled={loading}
           >
             {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
-
-        <p className="mt-6 text-center text-sm text-gray-600">
-          Don't have an account?{' '}
-          <a
-            href="/"
-            className="font-medium text-indigo-600 hover:text-indigo-500 transition duration-300"
-          >
-            Sign up here
-          </a>
-        </p>
+        <div className="text-center mt-4">
+          <p className="text-sm text-gray-600">
+            Don't have an account?{' '}
+            <a
+              href="/"
+              className="font-medium text-indigo-600 hover:text-indigo-500 transition duration-300"
+            >
+              Sign up here
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );
