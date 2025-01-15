@@ -45,7 +45,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen bg-blur">
       <div className="bg-white p-6 rounded-lg shadow-2xl w-full max-w-xs transform transition-transform duration-500">
         <div className="text-center mb-4">
           <h1 className="text-2xl font-extrabold text-indigo-600">Exam Room Allocation (ERA)</h1>

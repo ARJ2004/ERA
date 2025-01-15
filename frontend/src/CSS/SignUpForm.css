@@ -1,138 +1,138 @@
 /* SignUpForm.css */
 .form-group {
-    position: relative;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 4px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #4a5568;
-  }
-  
-  .form-group input,
-  .form-group select {
-    padding: 8px;
-    border: 1px solid #cbd5e0;
-    border-radius: 0.375rem;
-    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  }
-  
-  .form-group input:focus,
-  .form-group select:focus {
-    border-color: #4299e1;
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.25);
-  }
-  
-  button {
-    background-color: #4299e1;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 0.375rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
-  }
-  
-  button:hover {
-    background-color: #3182ce;
-    transform: translateY(-2px);
-  }
-  
-  .transform {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .hover\:scale-105:hover {
-    transform: scale(1.05);
-  }
-  
-  .hover\:scale-105 {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .text-center {
-    text-align: center;
-  }
-  
-  .mt-4 {
-    margin-top: 1rem;
-  }
-  
-  .text-indigo-600 {
-    color: #4299e1;
-  }
-  
-  .hover\:text-indigo-800:hover {
-    color: #3182ce;
-  }
-  
-  .hover\:underline:hover {
-    text-decoration: underline;
-  }
-  
-  .font-medium {
-    font-weight: 500;
-  }
-  
-  .max-w-xs {
-    max-width: 20rem;
-  }
-  
-  .flex {
-    display: flex;
-  }
-  
-  .justify-center {
-    justify-content: center;
-  }
-  
-  .items-center {
-    align-items: center;
-  }
-  
-  .min-h-screen {
-    min-height: 100vh;
-  }
-  
-  .bg-gray-100 {
-    background-color: #f7fafc;
-  }
-  
-  .bg-white {
-    background-color: #ffffff;
-  }
-  
-  .p-6 {
-    padding: 1.5rem;
-  }
-  
-  .rounded-lg {
-    border-radius: 0.5rem;
-  }
-  
-  .shadow-2xl {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  }
-  
-  .w-full {
-    width: 100%;
-  }
-  
-  .max-w-xs {
-    max-width: 20rem;
-  }
-  
-  .transform {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .transition-transform {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .duration-500 {
-    transition-duration: 500ms;
-  }
-  
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.form-group input,
+.form-group select {
+  padding: 8px;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.375rem;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.25);
+}
+
+button {
+  background-color: #4299e1;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #3182ce;
+  transform: translateY(-2px);
+}
+
+.transform {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+.hover\:scale-105 {
+  transition: transform 0.3s ease-in-out;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.text-indigo-600 {
+  color: #4299e1;
+}
+
+.hover\:text-indigo-800:hover {
+  color: #3182ce;
+}
+
+.hover\:underline:hover {
+  text-decoration: underline;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.max-w-xs {
+  max-width: 20rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.bg-blur {
+  background: url('C:\MINI PROJECT\ERA_NEW\frontend\public\background.webp') no-repeat center center/cover;
+  backdrop-filter: blur(10px); /* Adjust the blur intensity as needed */
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.w-full {
+  width: 100%;
+}
+
+.max-w-xs {
+  max-width: 20rem;
+}
+
+.transform {
+  transition: transform 0.3s ease-in-out;
+}
+
+.transition-transform {
+  transition: transform 0.3s ease-in-out;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
+}

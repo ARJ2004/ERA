@@ -33,7 +33,7 @@ export const SignUpForm = () => {
 
   if (success) {
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="flex justify-center items-center min-h-screen bg-blur">
         <div className="bg-white p-6 rounded-lg shadow-2xl text-center transform transition-transform duration-500">
           <h2 className="text-xl font-bold text-green-600 mb-4">Account Created Successfully!</h2>
           <p className="text-gray-700 mb-4">Please check your email to verify your account.</p>
@@ -49,7 +49,7 @@ export const SignUpForm = () => {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen bg-blur">
       <div className="bg-white p-6 rounded-lg shadow-2xl w-full max-w-xs transform transition-transform duration-500">
         <div className="text-center mb-4">
           <h1 className="text-2xl font-extrabold text-indigo-600">Exam Room Allocation (ERA)</h1>
