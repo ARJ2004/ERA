@@ -10,7 +10,7 @@ admin@g
 password123
 
 
-Sure, let's summarize what we have achieved so far:
+Sure, let's summarize what we have achieved in this project so far:
 
 Achievements
 Backend Setup:
