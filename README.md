@@ -28,8 +28,8 @@ Follow these steps to set up and run the project locally:
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/yourusername/exam-room-allocation.git
-cd exam-room-allocation
+git clone https://github.com/ARJ2004/ERA.git
+cd ERA
 ```
 
 ### 2. Install Backend Dependencies
