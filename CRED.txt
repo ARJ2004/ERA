@@ -72,3 +72,14 @@ Dashboard Functionality:
 
 Admin, student, and invigilator dashboards with edit and logout functionality.
 Display of allocated room details or a message if no room is allocated.
+
+
+
+Invigilator Dashboard:
+Fetches and displays invigilator details.
+Allows editing invigilator details.
+Displays the allocated room details or a message if no room is allocated.
+Includes a logout button to redirect to the login page.
+
+
+
